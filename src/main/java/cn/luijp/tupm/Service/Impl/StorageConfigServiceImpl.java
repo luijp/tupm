@@ -52,7 +52,7 @@ public class StorageConfigServiceImpl implements StorageConfigService {
     @Override
     public List<StorageConfig> ListAllConfig() {
         QueryWrapper<StorageConfig> queryWrapper = new QueryWrapper<>();
-        queryWrapper.gt("id",0);
+        queryWrapper.gt("id",0).orderByDesc("weight");
         return storageConfigMapper.selectList(queryWrapper);
     }
 

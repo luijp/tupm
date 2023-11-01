@@ -18,6 +18,7 @@ public class StorageConfig {
     private String s3Sk;
     private String s3Region;
     private String s3Bucketname;
+    private Integer weight;
 
 
 }

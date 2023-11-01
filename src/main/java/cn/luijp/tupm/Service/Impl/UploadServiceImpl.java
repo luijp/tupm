@@ -3,41 +3,46 @@ package cn.luijp.tupm.Service.Impl;
 import cn.luijp.tupm.Exception.FileUploadException;
 import cn.luijp.tupm.Pojo.FileUpload;
 import cn.luijp.tupm.Pojo.Mapper.FileUploadMapper;
+import cn.luijp.tupm.Pojo.Mapper.StorageConfigMapper;
 import cn.luijp.tupm.Pojo.StorageConfig;
-import cn.luijp.tupm.Service.FileUploadService;
 import cn.luijp.tupm.Service.SiteConfigService;
 import cn.luijp.tupm.Service.StorageConfigService;
 import cn.luijp.tupm.Service.UploadService;
 import cn.luijp.tupm.Utils.UUID;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class UploadServiceImpl implements UploadService {
-    private final FileUploadService s3Uploader;
-    private final FileUploadService localUploader;
 
-    @Autowired
+
     SiteConfigService siteConfigService;
 
-    @Autowired
     StorageConfigService storageConfigService;
 
-    @Autowired
     FileUploadMapper fileUploadMapper;
 
+    StorageConfigMapper storageConfigMapper;
+
     @Autowired
-    public UploadServiceImpl(@Qualifier("S3") FileUploadService s3Uploader,
-                       @Qualifier("Local") FileUploadService localUploader){
-        this.s3Uploader = s3Uploader;
-        this.localUploader = localUploader;
+    public UploadServiceImpl(SiteConfigService siteConfigService,
+                             StorageConfigService storageConfigService,
+                             FileUploadMapper fileUploadMapper,
+                             StorageConfigMapper storageConfigMapper){
+        this.siteConfigService = siteConfigService;
+        this.storageConfigService = storageConfigService;
+        this.fileUploadMapper = fileUploadMapper;
+        this.storageConfigMapper = storageConfigMapper;
+
 
     }
 
@@ -53,7 +58,7 @@ public class UploadServiceImpl implements UploadService {
 
     private FileUpload Upload2Local(MultipartFile FileName, StorageConfig storageConfig) {
         try{
-            Long NowTime = System.currentTimeMillis();
+            long NowTime = System.currentTimeMillis();
             String StorageFolder = storageConfig.getLocalfilepath();
             String StorageName = NowTime + UUID.randomUUID();
             String OriginName = FileName.getOriginalFilename();
@@ -76,4 +81,5 @@ public class UploadServiceImpl implements UploadService {
     private FileUpload Upload2S3(MultipartFile FileName, StorageConfig storageConfig) throws FileUploadException {
         throw new FileUploadException("NOT FINISHED CODING....");
     }
+
 }
