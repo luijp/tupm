@@ -1,5 +1,6 @@
 package cn.luijp.tupm.Service.Impl;
 
+import cn.luijp.tupm.Enum.ReposCodeEnum;
 import cn.luijp.tupm.Exception.StorageConfigException;
 import cn.luijp.tupm.Pojo.Mapper.StorageConfigMapper;
 import cn.luijp.tupm.Pojo.SiteConfig;
@@ -23,7 +24,7 @@ public class StorageConfigServiceImpl implements StorageConfigService {
         queryWrapper.eq("id",TargetId);
         StorageConfig storageConfig = storageConfigMapper.selectOne(queryWrapper);
         if(storageConfig == null) {
-            throw new StorageConfigException("GET STORAGE CONFIG BY ID FAILED");
+            throw new StorageConfigException(ReposCodeEnum.STORAGE_CONFIG_GET_BY_ID_FAILED);
         }
         return storageConfig;
     }
@@ -46,7 +47,7 @@ public class StorageConfigServiceImpl implements StorageConfigService {
         if(count > 0){
             return true;
         }
-        throw new StorageConfigException("DELETE STORAGE CONFIG FAILED");
+        throw new StorageConfigException(ReposCodeEnum.STORAGE_CONFIG_DELETE_FAILED);
     }
 
     @Override
@@ -61,6 +62,6 @@ public class StorageConfigServiceImpl implements StorageConfigService {
         if(count > 0){
             return storageConfig;
         }
-        throw new StorageConfigException("INSERT NEW STORAGE CONFIG FAILED");
+        throw new StorageConfigException(ReposCodeEnum.STORAGE_CONFIG_INSERT_FAILED);
     }
 }

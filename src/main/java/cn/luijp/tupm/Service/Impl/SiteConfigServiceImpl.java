@@ -1,5 +1,6 @@
 package cn.luijp.tupm.Service.Impl;
 
+import cn.luijp.tupm.Enum.ReposCodeEnum;
 import cn.luijp.tupm.Exception.ConfigException;
 import cn.luijp.tupm.Pojo.Mapper.SiteConfigMapper;
 import cn.luijp.tupm.Pojo.SiteConfig;
@@ -23,7 +24,7 @@ public class SiteConfigServiceImpl implements SiteConfigService {
         queryWrapper.eq("name",name);
         SiteConfig siteConfig = siteConfigMapper.selectOne(queryWrapper);
         if(siteConfig == null){
-            throw new ConfigException("Site Config Not Found");
+            throw new ConfigException(ReposCodeEnum.SIT_CONFIG_NOT_FOUND);
         }
         return siteConfig;
     }
@@ -51,7 +52,7 @@ public class SiteConfigServiceImpl implements SiteConfigService {
         if(count > 0) {
             return true;
         }else {
-            throw new ConfigException("DELETE FAILED");
+            throw new ConfigException(ReposCodeEnum.SITE_CONFIG_DELETE_FAILED);
         }
 
     }
@@ -72,7 +73,7 @@ public class SiteConfigServiceImpl implements SiteConfigService {
         if(count > 0){
             return siteConfig;
         }else{
-            throw new ConfigException("CREATE CONFIG FAILED");
+            throw new ConfigException(ReposCodeEnum.SITE_CONFIG_CREATE_FAILED);
         }
     }
 }

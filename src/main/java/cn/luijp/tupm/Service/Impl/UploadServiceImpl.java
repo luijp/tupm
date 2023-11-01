@@ -1,5 +1,6 @@
 package cn.luijp.tupm.Service.Impl;
 
+import cn.luijp.tupm.Enum.ReposCodeEnum;
 import cn.luijp.tupm.Exception.FileUploadException;
 import cn.luijp.tupm.Pojo.FileUpload;
 import cn.luijp.tupm.Pojo.Mapper.FileUploadMapper;
@@ -73,13 +74,13 @@ public class UploadServiceImpl implements UploadService {
             fileUploadMapper.insert(fileUpload);
             return fileUpload;
         } catch (IOException e) {
-            throw new FileUploadException("FILE UPLOAD FAILED :" + Arrays.toString(e.getStackTrace()));
+            throw new FileUploadException(ReposCodeEnum.FILE_UPLOAD_FAILED);
         }
 
 
     }
     private FileUpload Upload2S3(MultipartFile FileName, StorageConfig storageConfig) throws FileUploadException {
-        throw new FileUploadException("NOT FINISHED CODING....");
+        throw new FileUploadException(ReposCodeEnum.FAIL);
     }
 
 }
