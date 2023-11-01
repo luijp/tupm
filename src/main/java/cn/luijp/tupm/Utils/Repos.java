@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Repos<T>{
-    private ReposCodeEnum Code;
+    private Integer Code;
     private String Message;
     private T Data;
 
@@ -15,56 +15,59 @@ public class Repos<T>{
 
     public static Repos<Object> success(){
         Repos<Object> resp = new Repos<>();
-        resp.Code = ReposCodeEnum.SUCCESS;
+        resp.setCode(ReposCodeEnum.SUCCESS.getCode());
+        resp.setMessage(ReposCodeEnum.SUCCESS.getMessage());
         return resp;
     }
 
     public static Repos<Object> success(String Message){
         Repos<Object> resp = new Repos<>();
-        resp.Code = ReposCodeEnum.SUCCESS;
+        resp.setCode(ReposCodeEnum.SUCCESS.getCode());
         resp.setMessage(Message);
         return resp;
     }
 
     public static<T> Repos<T> success(String Message,T Data){
         Repos<T> resp = new Repos<>();
-        resp.Code = ReposCodeEnum.SUCCESS;
+        resp.setCode(ReposCodeEnum.SUCCESS.getCode());
         resp.setMessage(Message);
-        resp.Data = Data;
+        resp.setData(Data);
         return resp;
     }
 
     public static<T> Repos<T> success(T Data){
         Repos<T> resp = new Repos<>();
-        resp.Code = ReposCodeEnum.SUCCESS;
-        resp.Data = Data;
+        resp.setCode(ReposCodeEnum.SUCCESS.getCode());
+        resp.setData(Data);
         return resp;
     }
 
     public static Repos<Object> fail(){
         Repos<Object> resp = new Repos<>();
-        resp.Code = ReposCodeEnum.FAIL;
+        resp.setCode(ReposCodeEnum.FAIL.getCode());
+        resp.setMessage(ReposCodeEnum.FAIL.getMessage());
         return resp;
     }
 
     public static Repos<Object> fail(ReposCodeEnum Code){
         Repos<Object> resp = new Repos<>();
-        resp.Code = Code;
+        resp.setCode(Code.getCode());
+        resp.setMessage(Code.getMessage());
         return resp;
     }
 
     public static Repos<Object> fail(ReposCodeEnum Code, String Message){
         Repos<Object> resp = new Repos<>();
-        resp.Code = Code;
-        resp.Message = Message;
+        resp.setCode(Code.getCode());
+        resp.setMessage(Message);
         return resp;
     }
 
     public static<T> Repos<T> fail(ReposCodeEnum Code, String Message, T Data){
         Repos<T> resp = new Repos<>();
-        resp.Code = Code;
-        resp.Message = Message;
-        resp.Data = Data;
+        resp.setCode(Code.getCode());
+        resp.setMessage(Message);
+        resp.setData(Data);
         return resp;
     }
 

@@ -28,7 +28,7 @@ public class Upload {
     }
 
     @PostMapping("/imgupload")
-    public Repos<Object> ImgUpload(@RequestParam("filename")MultipartFile FileName,
+    public Repos<Object> ImgUpload(@RequestParam("filename") MultipartFile FileName,
                            @RequestParam("targetid") int TargetId) {
 
         uploadService.ImgUpload(FileName, TargetId);

@@ -21,6 +21,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UploadServiceImpl implements UploadService {
@@ -64,6 +65,9 @@ public class UploadServiceImpl implements UploadService {
             String StorageName = NowTime + UUID.randomUUID();
             String OriginName = FileName.getOriginalFilename();
             File DestFile = new File(StorageFolder,StorageName);
+            if(!DestFile.exists()){
+                DestFile.mkdirs();
+            }
             FileName.transferTo(DestFile);
 
             FileUpload fileUpload = new FileUpload();
