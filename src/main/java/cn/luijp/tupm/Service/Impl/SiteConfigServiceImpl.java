@@ -18,19 +18,18 @@ public class SiteConfigServiceImpl implements SiteConfigService {
     SiteConfigMapper siteConfigMapper;
 
     @Override
-    public String GetConfig(String name) throws ConfigException {
+    public SiteConfig GetConfig(String name) throws ConfigException {
         QueryWrapper<SiteConfig> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("name",name);
         SiteConfig siteConfig = siteConfigMapper.selectOne(queryWrapper);
-        String value = siteConfig.getValue();
-        if(value.isEmpty()){
+        if(siteConfig == null){
             throw new ConfigException("Site Config Not Found");
         }
-        return value;
+        return siteConfig;
     }
 
     @Override
-    public Boolean SetConfig(String name, String value) throws ConfigException {
+    public SiteConfig SetConfig(String name, String value) throws ConfigException {
         QueryWrapper<SiteConfig> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("name",name);
         SiteConfig siteConfig = siteConfigMapper.selectOne(queryWrapper);
@@ -38,8 +37,8 @@ public class SiteConfigServiceImpl implements SiteConfigService {
         if(!siteConfig.getValue().isEmpty()){
             DelConfig(name);
         }
-        NewConfig(name, value);
-        return true;
+        return NewConfig(name, value);
+
     }
 
     @Override
@@ -63,6 +62,7 @@ public class SiteConfigServiceImpl implements SiteConfigService {
         queryWrapper.gt("id",0);
         return siteConfigMapper.selectList(queryWrapper);
     }
+
 
     private SiteConfig NewConfig(String name, String value) throws ConfigException{
         SiteConfig siteConfig = new SiteConfig();
