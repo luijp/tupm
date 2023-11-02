@@ -10,6 +10,7 @@ public class Index {
 
     @GetMapping("/admin")
     public String AdminIndex(Model model){
+        model.addAttribute("title", "Admin Index");
         return "admin/index";
 
     }
