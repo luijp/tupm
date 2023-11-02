@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
+import java.net.MalformedURLException;
+
 @ControllerAdvice
 @Slf4j
 @ResponseBody
@@ -33,6 +35,20 @@ public class GlobalExceptionHandler {
                 + " max-request-size: " + environment.getProperty("spring.servlet.multipart.max-request-size") );
         return Repos.fail(ReposCodeEnum.FILE_UPLOAD_MAX_SIZE,ReposCodeEnum.FILE_UPLOAD_MAX_SIZE.getMessage() + " max-file-size: " + environment.getProperty("spring.servlet.multipart.max-file-size")
                 + " max-request-size: " + environment.getProperty("spring.servlet.multipart.max-request-size") );
+    }
+
+    @ExceptionHandler(FileViewException.class)
+    public Repos<Object> handleFileViewException(FileViewException ex){
+        ex.printStackTrace();
+        log.warn(ex.getMessage());
+        return Repos.fail(ex.GetExceptionCode());
+    }
+
+    @ExceptionHandler(MalformedURLException.class)
+    public Repos<Object> handleMalformedURLException(MalformedURLException ex){
+        ex.printStackTrace();
+        log.warn(ex.getMessage());
+        return Repos.fail(ReposCodeEnum.FILE_UPLOADED_BROKEN);
     }
 
     @ExceptionHandler(Exception.class)
