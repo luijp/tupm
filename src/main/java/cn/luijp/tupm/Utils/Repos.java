@@ -20,20 +20,6 @@ public class Repos<T>{
         return resp;
     }
 
-    public static Repos<Object> success(String Message){
-        Repos<Object> resp = new Repos<>();
-        resp.setCode(ReposCodeEnum.SUCCESS.getCode());
-        resp.setMessage(Message);
-        return resp;
-    }
-
-    public static<T> Repos<T> success(String Message,T Data){
-        Repos<T> resp = new Repos<>();
-        resp.setCode(ReposCodeEnum.SUCCESS.getCode());
-        resp.setMessage(Message);
-        resp.setData(Data);
-        return resp;
-    }
 
     public static<T> Repos<T> success(T Data){
         Repos<T> resp = new Repos<>();
@@ -67,6 +53,13 @@ public class Repos<T>{
         Repos<T> resp = new Repos<>();
         resp.setCode(Code.getCode());
         resp.setMessage(Message);
+        resp.setData(Data);
+        return resp;
+    }
+
+    public static<T> Repos<T> fail(ReposCodeEnum Code, T Data){
+        Repos<T> resp = new Repos<>();
+        resp.setCode(Code.getCode());
         resp.setData(Data);
         return resp;
     }

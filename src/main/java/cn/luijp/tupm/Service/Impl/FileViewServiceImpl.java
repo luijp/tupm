@@ -31,7 +31,7 @@ public class FileViewServiceImpl implements FileViewService {
     }
 
     @Override
-    public ViewFileClass  ViewFile(int TargetId) throws MalformedURLException,FileViewException {
+    public ViewFileClass  ViewFile(int TargetId) throws FileViewException, MalformedURLException {
         QueryWrapper<FileUpload> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("id", TargetId);
         FileUpload fileUpload = fileUploadMapper.selectOne(queryWrapper);

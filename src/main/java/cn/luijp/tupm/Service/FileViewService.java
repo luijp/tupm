@@ -10,5 +10,5 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 
 public interface FileViewService {
-    public ViewFileClass ViewFile(int TargetId) throws MalformedURLException,FileViewException;
+    public ViewFileClass ViewFile(int TargetId) throws MalformedURLException;
 }
