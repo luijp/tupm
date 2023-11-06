@@ -36,6 +36,19 @@
     font-size: xxx-large;
 }
 
+.tp-nav-logo *:hover {
+    color: #FFFFFF;
+}
+
+.tp-nav-active {
+    background-color: #426bfd;
+    color: #FFFFFF;
+}
+
+.tp-nav-active *{
+    color: #FFFFFF;
+}
+
 .tp-admin-content {
     background-color: #000000;
     color: #FFFFFF;
@@ -44,6 +57,22 @@
 .tp-admin-content h3{
     color: #bababa;
     font-size: larger;
+    padding-bottom: 0.5rem;
+}
+
+.tp-admin-content h1{
+    font-size: xx-large;
+    padding-bottom: 1rem;
+}
+
+.tp-admin-content h2{
+    font-size: x-large;
+    padding-bottom: 0.8rem;
+}
+
+.tp-admin-content p {
+    line-height: 1.5rem;
+    padding-bottom: 0.3rem;
 }
 
 /*div {*/

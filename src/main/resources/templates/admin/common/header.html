@@ -3,9 +3,71 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title th:text="${title}"></title>
+    <title th:text="${Title}"></title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/admin.style.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/icons/bootstrap-icons.css}" />
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-vertical navbar-expand-md tp-nav-bg d-none d-md-block col-md-3 p-2 vh-100">
+            <div class="tp-nav-logo pt-4">
+
+                <a class="navbar-brand" th:href="@{/admin/}">
+                    <span class="bi bi-box-fill me-3"></span> Tupm Admin</a>
+
+            </div>
+            <hr class="tp-nav-hr">
+            <div class="collapse navbar-collapse pt-3 flex-column">
+                <ul class="navbar-nav flex-column tp-nav-text w-100 p-0">
+
+                    <li th:class="${NavActive}=='Index' ? 'tp-nav-active' : ''" class="nav-item m-0">
+                        <a th:href="@{/admin/}" class="nav-link p-0 m-3">
+                            <span class="bi bi-house-door-fill pe-3"></span>
+                            仪表盘</a>
+                    </li>
+                    <li th:class="${NavActive}=='SiteConfig' ? 'tp-nav-active' : ''" class="nav-item m-0">
+                        <a th:href="@{/admin/siteconfig}" class="nav-link p-0 m-3">
+                            <span class="bi bi-gear-fill pe-3"></span>
+                            站点设置</a>
+                    </li>
+                    <li th:class="${NavActive}=='UploadConfig' ? 'tp-nav-active' : ''" class="nav-item m-0">
+                        <a th:href="@{/admin/uploadconfig}" class="nav-link p-0 m-3">
+                            <span class="bi bi-cloud-upload-fill pe-3"></span>
+                            上传设置</a>
+                    </li>
+                </ul>
+
+
+            </div>
+        </nav>
+
+        <div class="collapse navbar-collapse d-md-none" id="navBar">
+            <ul class="navbar-nav flex-column">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <span class="bi bi-house-door-fill pe-2"></span>
+                        Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="bi bi-gear-fill pe-2"></span>
+                        SiteConfig</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="bi bi-cloud-upload-fill pe-2"></span>
+                        UploadConfig</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="col pt-4 ps-5 pe-5 tp-admin-content vh-100">
+            <div>
+                <button class="d-md-none block" type="button" data-bs-toggle="collapse" data-bs-target="#navBar"
+                        aria-controls="navBar" aria-expanded="false" aria-label="Toggler">
+                    <span class="navbar navbar-toggler-icon"></span>
+                </button>
+            </div>
