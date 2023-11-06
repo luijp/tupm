@@ -14,7 +14,7 @@
         <nav class="navbar navbar-vertical navbar-expand-md tp-nav-bg d-none d-md-block col-md-3 p-2 vh-100">
             <div class="tp-nav-logo pt-4">
 
-                <a class="navbar-brand" th:href="@{/admin/}">
+                <a class="navbar-brand" th:href="@{/admin/dashboard}">
                     <span class="bi bi-box-fill me-3"></span> Tupm Admin</a>
 
             </div>
@@ -23,7 +23,7 @@
                 <ul class="navbar-nav flex-column tp-nav-text w-100 p-0">
 
                     <li th:class="${NavActive}=='Index' ? 'tp-nav-active' : ''" class="nav-item m-0">
-                        <a th:href="@{/admin/}" class="nav-link p-0 m-3">
+                        <a th:href="@{/admin/dashboard}" class="nav-link p-0 m-3">
                             <span class="bi bi-house-door-fill pe-3"></span>
                             仪表盘</a>
                     </li>

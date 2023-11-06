@@ -1,0 +1,68 @@
+<div th:replace="~{admin/common/header}"></div>
+
+<h1>仪表盘</h1>
+
+<h3>网站运行数据鸟瞰</h3>
+
+<hr class="pt-3">
+
+<div class="row">
+    <div class="col-sm-10 col-md-6 col-lg-4 pb-3">
+        <div class="card tp-card">
+            <div class="card-body">
+                <h5 class="card-title tp-card-title pb-3">
+                    网站运行监测 <span class="text-success ps-3"><i class="bi bi-check-circle pe-1"></i>Online</span>
+                </h5>
+                <p class="card-text text-white">
+                    CPU Usage: 10%
+                </p>
+
+                <p class="card-text text-white">
+                    MEM Usage: 70%
+                </p>
+
+                <p class="card-text text-white">
+                    Version: Latest
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-10 col-md-6 col-lg-4 pb-3">
+        <div class="card tp-card">
+            <div class="card-body">
+                <h5 class="card-title tp-card-title pb-3">
+                    储存策略 <span class="text-success ps-3"><i class="bi bi-check-circle pe-1"></i>OK</span>
+                </h5>
+                <p class="card-text text-white">
+                    LOCAL: 10G / 20G
+                </p>
+
+                <p class="card-text text-white">
+                    S3: OK
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-10 col-md-6 col-lg-4 pb-3">
+        <div class="card tp-card">
+            <div class="card-body">
+                <h5 class="card-title tp-card-title pb-3">
+                    站点安全 <span class="text-danger ps-3"><i class="bi bi-ban-fill pe-1"></i>Danger</span>
+                </h5>
+
+                <p class="card-text text-white">
+                    次登录时间：2023-11-07 00:00:00
+                </p>
+                <p class="card-text text-white">
+                    上次登录 IP: 1.1.1.1
+
+                </p>
+             </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{admin/common/footer}"></div>
+

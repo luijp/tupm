@@ -32,6 +32,18 @@
 
 }
 
+.tp-card-title {
+    color: #FFFFFF;
+}
+
+
+
+.tp-card {
+    background-color: #191919;
+    border: #FFFFFF solid;
+    height: 20rem;
+}
+
 .tp-nav-logo span {
     font-size: xxx-large;
 }

@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class Admin {
 
-    @GetMapping("/")
-    public String AdminIndex(Model model){
-        model.addAttribute("Title", "Admin Index");
+    @GetMapping("/dashboard")
+    public String DashBoard(Model model){
+        model.addAttribute("Title", "仪表盘");
         model.addAttribute("NavActive","Index");
-        return "admin/index";
+        return "admin/dashboard";
 
     }
 
     @GetMapping("/siteconfig")
     public String SiteConfig(Model model) {
-        model.addAttribute("Title", "SiteConfig");
+        model.addAttribute("Title", "站点设置");
         model.addAttribute("NavActive","SiteConfig");
         return "admin/siteConfig";
     }
 
     @GetMapping("/uploadconfig")
     public String UploadConfig(Model model) {
-        model.addAttribute("Title", "UploadConfig");
+        model.addAttribute("Title", "上传设置");
         model.addAttribute("NavActive","UploadConfig");
         return "admin/uploadConfig";
     }
