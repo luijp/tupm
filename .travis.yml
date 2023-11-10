@@ -1,5 +1,0 @@
-language: java
-jdk:
-  - openjdk17
-scriptt:
-  - mvn clean install
